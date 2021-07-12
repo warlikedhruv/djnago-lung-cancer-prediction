@@ -1,0 +1,223 @@
+{% load static %}
+<html lang="en">
+<head>
+  <title>MedPlus &mdash; Hospital</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'style_1/fonts/icomoon/style.css' %}">
+
+  <link rel="stylesheet" href="{% static 'style_1/css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'style_1/css/magnific-popup.css' %}">
+  <link rel="stylesheet" href="{% static 'style_1/css/jquery-ui.css' %}">
+  <link rel="stylesheet" href="{% static 'style_1/css/owl.carousel.min.css' %}">
+  <link rel="stylesheet" href="{% static 'style_1/css/owl.theme.default.min.css' %}">
+
+  <link rel="stylesheet" href="{% static 'style_1/css/lightgallery.min.css' %}">
+
+  <link rel="stylesheet" href="{% static 'style_1/css/bootstrap-datepicker.css' %}">
+
+  <link rel="stylesheet" href="{% static 'style_1/fonts/flaticon/font/flaticon.css' %}">
+
+  <link rel="stylesheet" href="{% static 'style_1/css/swiper.css' %}">
+
+  <link rel="stylesheet" href="{% static 'style_1/css/aos.css' %}">
+
+  <link rel="stylesheet" href="{% static 'style_1/css/style.css' %}">
+
+</head>
+<body>
+
+  <div class="site-wrap">
+
+    <div class="site-mobile-menu">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div>
+
+
+
+
+    <header class="site-navbar py-3" role="banner">
+
+      <div class="container-fluid">
+        <div class="row align-items-center">
+
+          <div class="col-6 col-xl-2" data-aos="fade-down">
+            <h1 class="mb-0"><a href="" class="text-white h2 mb-0">MedPlus Oncology</a></h1>
+          </div>
+          <div class="col-10 col-md-8 d-none d-xl-block" data-aos="fade-down">
+            <nav class="site-navigation position-relative text-right text-lg-center" role="navigation">
+
+              <ul class="site-menu js-clone-nav mx-auto d-none d-lg-block">
+                <li class="active"><a href="{% url 'index' %}">Home</a></li>
+                {% if request.session.email %}
+                    <li><a href="{% url 'logout' %}">Logout</a></li>
+                {% else %}
+                <li><a href="{% url 'login' %}">Login</a></li>
+                {% endif %}
+                <li><a href="{% url 'account' %}">Account</a></li>
+                <li><a href=""></a></li>
+              </ul>
+            </nav>
+          </div>
+
+          <div class="col-6 col-xl-2 text-right" data-aos="fade-down">
+            <div class="d-none d-xl-inline-block">
+              <ul class="site-menu js-clone-nav ml-auto list-unstyled d-flex text-right mb-0" data-class="social">
+                <li>
+                  <a href="#" class="pl-0 pr-3"><span class="icon-facebook"></span></a>
+                </li>
+                <li>
+                  <a href="#" class="pl-3 pr-3"><span class="icon-twitter"></span></a>
+                </li>
+                <li>
+                  <a href="#" class="pl-3 pr-3"><span class="icon-instagram"></span></a>
+                </li>
+                <li>
+                  <a href="#" class="pl-3 pr-3"><span class="icon-youtube-play"></span></a>
+                </li>
+              </ul>
+            </div>
+
+            <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle text-black"><span class="icon-menu h3"></span></a></div>
+
+          </div>
+
+        </div>
+      </div>
+
+    </header>
+
+    <div class="container-fluid">
+        <div class="row justify-content-center" >
+
+          <div class="col-md-7">
+            <div class="row mb-5">
+              <div class="col-12 ">
+                <h2 class="site-section-heading text-center"></h2>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="row mb-5">
+          <div class="col-md-7">
+            <img src="https://images.unsplash.com/photo-1485848395967-65dff62dc35b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1049&q=80" alt="Images" class="img-fluid">
+          </div>
+          <div class="col-md-4 ml-auto">
+            <h3 class="text-white">Our Speciality</h3>
+            <p>We are a renowned firm , with best experienced doctors around the globe</p>
+            <p>Our doctors excels in oncology.
+            </p>
+            <br>
+            <h3 class="text-white">Our Mission</h3>
+            <p>To improve the health and healing of the people and communities we serve. To provide healthcare all which is easily accessible, affordable and ethical</p>
+
+            <h3 class="text-white">Our Vision</h3>
+            <p>To evolve as a benchmark in quality healthcare available to one and all.</p>
+          </div>
+        </div>
+    </div>
+
+
+  <br><br><br>
+    <div class="container-fluid" data-aos="fade" data-aos-delay="500">
+      <div class="row justify-content-center" >
+
+          <div class="col-md-7">
+            <div class="row mb-5">
+              <div class="col-12 ">
+                <h2 class="site-section-heading text-center">Meet our Doctors</h2>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      <div class="row">
+
+        <div class="col-lg-4">
+
+          <div class="image-wrap-2">
+            <div class="image-info">
+              <h2 class="mb-3">Dr. Clara</h2>
+              <a href="" class="btn btn-outline-white py-2 px-4">Explore</a>
+            </div>
+            <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" alt="Image" class="img-fluid">
+          </div>
+
+        </div>
+        <div class="col-lg-4">
+          <div class="image-wrap-2">
+            <div class="image-info">
+              <h2 class="mb-3">Dr. Rick</h2>
+              <a href="" class="btn btn-outline-white py-2 px-4">Explore</a>
+            </div>
+            <img src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" alt="Image" class="img-fluid">
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="image-wrap-2">
+            <div class="image-info">
+              <h2 class="mb-3">Dr. Ram</h2>
+              <a href="" class="btn btn-outline-white py-2 px-4">Explore</a>
+            </div>
+            <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1050&q=80" alt="Image" class="img-fluid">
+          </div>
+        </div>
+
+
+
+
+      </div>
+    </div>
+
+    <div class="footer py-4">
+      <div class="container-fluid text-center">
+        <p>
+          <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+          Copyright &copy;<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>document.write(new Date().getFullYear());</script> All rights reserved
+          <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+        </p>
+      </div>
+    </div>
+
+
+
+
+
+  </div>
+
+  <script src="{% static 'style_1/js/jquery-3.3.1.min.js' %}"></script>
+  <script src="{% static 'style_1/js/jquery-migrate-3.0.1.min.js' %}"></script>
+  <script src="{% static 'style_1/js/jquery-ui.js' %}"></script>
+  <script src="{% static 'style_1/js/popper.min.js' %}"></script>
+  <script src="{% static 'style_1/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'style_1/js/owl.carousel.min.js' %}"></script>
+  <script src="{% static 'style_1/js/jquery.stellar.min.js' %}"></script>
+  <script src="{% static 'style_1/js/jquery.countdown.min.js' %}"></script>
+  <script src="{% static 'style_1/js/jquery.magnific-popup.min.js' %}"></script>
+  <script src="{% static 'style_1/js/bootstrap-datepicker.min.js' %}"></script>
+  <script src="{% static 'style_1/js/swiper.min.js' %}"></script>
+  <script src="{% static 'style_1/js/aos.js' %}"></script>
+
+  <script src="{% static 'style_1/js/picturefill.min.js' %}"></script>
+  <script src="{% static 'style_1/js/lightgallery-all.min.js' %}"></script>
+  <script src="{% static 'style_1/js/jquery.mousewheel.min.js' %}"></script>
+
+  <script src="{% static 'style_1/js/main.js' %}"></script>
+
+  <script>
+    $(document).ready(function(){
+      $('#lightgallery').lightGallery();
+    });
+  </script>
+
+</body>
+</html>

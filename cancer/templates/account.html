@@ -1,0 +1,327 @@
+{% load static %}
+<html lang="en">
+<head>
+  <title>MedPlus &mdash; Oncology</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'style_1/fonts/icomoon/style.css' %}">
+
+  <link rel="stylesheet" href="{% static 'style_1/css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'style_1/css/magnific-popup.css' %}">
+  <link rel="stylesheet" href="{% static 'style_1/css/jquery-ui.css' %}">
+  <link rel="stylesheet" href="{% static 'style_1/css/owl.carousel.min.css' %}">
+  <link rel="stylesheet" href="{% static 'style_1/css/owl.theme.default.min.css' %}">
+
+  <link rel="stylesheet" href="{% static 'style_1/css/lightgallery.min.css' %}">
+
+  <link rel="stylesheet" href="{% static 'style_1/css/bootstrap-datepicker.css' %}">
+
+  <link rel="stylesheet" href="{% static 'style_1/fonts/flaticon/font/flaticon.css' %}">
+
+  <link rel="stylesheet" href="{% static 'style_1/css/swiper.css' %}">
+
+  <link rel="stylesheet" href="{% static 'style_1/css/aos.css' %}">
+
+  <link rel="stylesheet" href="{% static 'style_1/css/style.css' %}">
+
+</head>
+<body>
+
+  <div class="site-wrap">
+
+    <div class="site-mobile-menu">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div>
+
+
+
+
+    <header class="site-navbar py-3" role="banner">
+
+      <div class="container-fluid">
+        <div class="row align-items-center">
+
+          <div class="col-6 col-xl-2" data-aos="fade-down">
+            <h1 class="mb-0"><a href="" class="text-white h2 mb-0">Patient Account</a></h1>
+          </div>
+          <div class="col-10 col-md-8 d-none d-xl-block" data-aos="fade-down">
+            <nav class="site-navigation position-relative text-right text-lg-center" role="navigation">
+
+              <ul class="site-menu js-clone-nav mx-auto d-none d-lg-block">
+                <li ><a href="{% url 'index' %}">Home</a></li>
+                {% if request.session.email %}
+                    <li><a href="{% url 'logout' %}">Logout</a></li>
+                {% else %}
+                <li><a href="{% url 'login' %}">Login</a></li>
+                {% endif %}
+                <li class="active"><a href="{% url 'account' %}">Account</a></li>
+                <li><a href=""></a></li>
+              </ul>
+            </nav>
+          </div>
+
+          <div class="col-6 col-xl-2 text-right" data-aos="fade-down">
+            <div class="d-none d-xl-inline-block">
+              <ul class="site-menu js-clone-nav ml-auto list-unstyled d-flex text-right mb-0" data-class="social">
+
+              </ul>
+            </div>
+
+            <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle text-black"><span class="icon-menu h3"></span></a></div>
+
+          </div>
+
+        </div>
+      </div>
+
+    </header>
+
+
+
+    <div class="site-section"  data-aos="fade">
+      <div class="container-fluid">
+        <div class="row justify-content-center">
+
+          <div class="col-md-7">
+            <div class="row mb-5">
+              <div class="col-12 ">
+                <h2 class="site-section-heading text-center">Hello {{ name }} !</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-5">
+
+          <div class="col-md-4">
+            <div class="image-wrap-2">
+              <div class="image-info">
+                <h2 class="mb-3">Welcome</h2>
+
+              </div>
+              <img src="https://images.unsplash.com/photo-1512069511692-b82d787265cf?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=699&q=80" alt="Image" class="img-fluid">
+            </div>
+          </div>
+          <div class="col-md-1"></div>
+          <div class="col-md-6 justify-content-center">
+            <h3 class="text-centre">Take Survey</h3>
+            <form action="#" method="post" enctype="multipart/form-data">
+              {% csrf_token %}
+
+
+              <div class="row form-group">
+                <div class="col-md-4">
+                  <label class="text-white" for="gender">Gender</label>
+                  <select id="gender" class="form-control" name="gender" style="color: rgb(69,69,69) !important">
+                    <option value="1">Male</option>
+                    <option value="2">Female</option>
+                  </select>
+                </div>
+
+                <div class="col-md-4">
+                  <label class="text-white" for="age">Age</label>
+                  <input type="text" id="age" name="age" class="form-control">
+                </div>
+
+                <div class="col-md-4">
+                  <label class="text-white" for="smoking">Smoking</label>
+                  <select id="smoking" class="form-control" name="smoking" style="color: rgb(69,69,69) !important">
+                    <option value="1">Yes</option>
+                    <option value="2">No</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="row form-group">
+
+                <div class="col-md-4">
+                  <label class="text-white" for="yellow-fingers">Yellow Fingers</label>
+                  <select id="yellow-fingers" class="form-control" name="yellow-fingers" style="color: rgb(69,69,69) !important">
+                    <option value="1">Yes</option>
+                    <option value="2">No</option>
+                  </select>
+                </div>
+
+                <div class="col-md-4">
+                  <label class="text-white" for="anxiety">Anxiety</label>
+                  <select id="anxiety" class="form-control" name="anxiety" style="color: rgb(69,69,69) !important">
+                    <option value="1">Yes</option>
+                    <option value="2">No</option>
+                  </select>
+                </div>
+
+                <div class="col-md-4">
+                  <label class="text-white" for="peer-pressure">Peer Pressure</label>
+                  <select id="peer-pressure" class="form-control" name="peer-pressure" style="color: rgb(69,69,69) !important">
+                    <option value="1">Yes</option>
+                    <option value="2">No</option>
+                  </select>
+                </div>
+
+              </div>
+
+
+
+
+              <div class="row form-group">
+                <div class="col-md-4">
+                  <label class="text-white" for="chronic-disease">Chronic Disease</label>
+                  <select id="chronic-disease" class="form-control" name="chronic-disease" style="color: rgb(69,69,69) !important">
+                    <option value="1">Yes</option>
+                    <option value="2">No</option>
+                  </select>
+                </div>
+
+                <div class="col-md-4">
+                  <label class="text-white" for="fatigue">Fatigue</label>
+                  <select id="fatigue" class="form-control" name="fatigue" style="color: rgb(69,69,69) !important">
+                    <option value="1">Yes</option>
+                    <option value="2">No</option>
+                  </select>
+                </div>
+
+                <div class="col-md-4">
+                  <label class="text-white" for="allergy">Allegry</label>
+                  <select id="allergy" class="form-control" name="allergy" style="color: rgb(69,69,69) !important">
+                    <option value="1">Yes</option>
+                    <option value="2">No</option>
+                  </select>
+                </div>
+
+              </div>
+
+              <div class="row form-group">
+
+                <div class="col-md-4">
+
+                  <label class="text-white" for="wheezing">Wheezing</label>
+                  <select id="wheezing" class="form-control" name="wheezing" style="color: rgb(69,69,69) !important">
+                    <option value="1">Yes</option>
+                    <option value="2">No</option>
+                  </select>
+                </div>
+
+                <div class="col-md-4">
+                  <label class="text-white" for="alcohol-consumption">Alcohol Consumption</label>
+                  <select id="alcohol-consumption" class="form-control" name="alcohol-consumption" style="color: rgb(69,69,69) !important">
+                    <option value="1">Yes</option>
+                    <option value="2">No</option>
+                  </select>
+                </div>
+
+                <div class="col-md-4">
+
+                  <label class="text-white" for="coughing">Coughing</label>
+                  <select id="coughing" class="form-control" name="coughing" style="color: rgb(69,69,69) !important">
+                    <option value="1">Yes</option>
+                    <option value="2">No</option>
+
+                  </select>
+                </div>
+
+              </div>
+
+
+              <div class="row form-group">
+                <div class="col-md-4">
+                  <label class="text-white" for="short-breath">Short Breath</label>
+                  <select id="short-breath" class="form-control" name="short-breath" style="color: rgb(69,69,69) !important">
+                    <option value="1">Yes</option>
+                    <option value="2">No</option>
+
+
+                  </select>
+                </div>
+                <div class="col-md-4">
+
+                  <label class="text-white" for="swallowing-difficulty">Swallowing Difficulty</label>
+                  <select id="swallowing-difficulty" class="form-control" name="swallowing-difficulty" style="color: rgb(69,69,69) !important">
+                    <option value="1">Yes</option>
+                    <option value="2">No</option>
+
+                  </select>
+                </div>
+
+                <div class="col-md-4">
+
+                  <label class="text-white" for="chest-pain">Chest Pain</label>
+                  <select id="chest-pain" class="form-control" name="chest-pain" style="color: rgb(69,69,69) !important">
+                    <option value="1">Yes</option>
+                    <option value="2">No</option>
+
+                  </select>
+                </div>
+              </div>
+
+
+              <div class="row form-group">
+                <div class="col-md-12">
+                  <input type="submit" value="Submit" class="btn btn-primary py-2 px-4 text-white">
+                </div>
+              </div>
+
+
+            </form>
+            {% if result %}
+              <div class="alert alert-info" role="alert">
+                AS per your symptoms lung cancer result: {{result}}
+              </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+
+    </div>
+
+    <div class="footer py-4">
+      <div class="container-fluid text-center">
+        <p>
+          <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+          Copyright &copy;<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>document.write(new Date().getFullYear());</script>
+          <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+        </p>
+      </div>
+    </div>
+
+
+
+
+
+  </div>
+
+  <script src="{% static 'style_1/js/jquery-3.3.1.min.js' %}"></script>
+  <script src="{% static 'style_1/js/jquery-migrate-3.0.1.min.js' %}"></script>
+  <script src="{% static 'style_1/js/jquery-ui.js' %}"></script>
+  <script src="{% static 'style_1/js/popper.min.js' %}"></script>
+  <script src="{% static 'style_1/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'style_1/js/owl.carousel.min.js' %}"></script>
+  <script src="{% static 'style_1/js/jquery.stellar.min.js' %}"></script>
+  <script src="{% static 'style_1/js/jquery.countdown.min.js' %}"></script>
+  <script src="{% static 'style_1/js/jquery.magnific-popup.min.js' %}"></script>
+  <script src="{% static 'style_1/js/bootstrap-datepicker.min.js' %}"></script>
+  <script src="{% static 'style_1/js/swiper.min.js' %}"></script>
+  <script src="{% static 'style_1/js/aos.js' %}"></script>
+
+  <script src="{% static 'style_1/js/picturefill.min.js' %}"></script>
+  <script src="{% static 'style_1/js/lightgallery-all.min.js' %}"></script>
+  <script src="{% static 'style_1/js/jquery.mousewheel.min.js' %}"></script>
+
+  <script src="{% static 'style_1/js/main.js' %}"></script>
+
+  <script>
+    $(document).ready(function(){
+      $('#lightgallery').lightGallery();
+    });
+  </script>
+
+</body>
+</html>

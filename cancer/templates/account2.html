@@ -1,0 +1,213 @@
+{% load static %}
+<html lang="en">
+<head>
+  <title>MedPlus &mdash; Oncology</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'style_1/fonts/icomoon/style.css' %}">
+
+  <link rel="stylesheet" href="{% static 'style_1/css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'style_1/css/magnific-popup.css' %}">
+  <link rel="stylesheet" href="{% static 'style_1/css/jquery-ui.css' %}">
+  <link rel="stylesheet" href="{% static 'style_1/css/owl.carousel.min.css' %}">
+  <link rel="stylesheet" href="{% static 'style_1/css/owl.theme.default.min.css' %}">
+
+  <link rel="stylesheet" href="{% static 'style_1/css/lightgallery.min.css' %}">
+
+  <link rel="stylesheet" href="{% static 'style_1/css/bootstrap-datepicker.css' %}">
+
+  <link rel="stylesheet" href="{% static 'style_1/fonts/flaticon/font/flaticon.css' %}">
+
+  <link rel="stylesheet" href="{% static 'style_1/css/swiper.css' %}">
+
+  <link rel="stylesheet" href="{% static 'style_1/css/aos.css' %}">
+
+  <link rel="stylesheet" href="{% static 'style_1/css/style.css' %}">
+
+</head>
+<body>
+
+  <div class="site-wrap">
+
+    <div class="site-mobile-menu">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div>
+
+
+
+
+    <header class="site-navbar py-3" role="banner">
+
+      <div class="container-fluid">
+        <div class="row align-items-center">
+
+          <div class="col-6 col-xl-2" data-aos="fade-down">
+            <h1 class="mb-0"><a href="" class="text-white h2 mb-0">Doctor Account</a></h1>
+          </div>
+          <div class="col-10 col-md-8 d-none d-xl-block" data-aos="fade-down">
+            <nav class="site-navigation position-relative text-right text-lg-center" role="navigation">
+
+              <ul class="site-menu js-clone-nav mx-auto d-none d-lg-block">
+                <li><a href="{% url 'index' %}">Home</a></li>
+                {% if request.session.email %}
+                    <li><a href="{% url 'logout' %}">Logout</a></li>
+                {% else %}
+                <li><a href="{% url 'login' %}">Login</a></li>
+                {% endif %}
+                <li class="active"><a href="{% url 'account' %}">Account</a></li>
+                <li><a href=""></a></li>
+              </ul>
+            </nav>
+          </div>
+
+          <div class="col-6 col-xl-2 text-right" data-aos="fade-down">
+            <div class="d-none d-xl-inline-block">
+              <ul class="site-menu js-clone-nav ml-auto list-unstyled d-flex text-right mb-0" data-class="social">
+
+              </ul>
+            </div>
+
+            <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle text-black"><span class="icon-menu h3"></span></a></div>
+
+          </div>
+
+        </div>
+      </div>
+
+    </header>
+
+
+
+
+    <div class="site-section"  data-aos="fade">
+     <div class="container-fluid">
+       <div class="row justify-content-center">
+
+          <div class="col-md-7">
+            <div class="row mb-5">
+              <div class="col-12 ">
+                <h3 class="site-section-heading text-center">Hello {{ name }} ! <br><br>Positive Patients</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+       <div class="row">
+				<div class="col-md-12">
+					<div class="table-wrap">
+						<table class="table table-bordered table-dark table-hover">
+						  <thead>
+						    <tr>
+						      <th>Name</th>
+						      <th>age</th>
+						      <th>gender</th>
+						      <th>smoking</th>
+                              <th>yellow</th>
+                              <th>anxiety</th>
+                              <th>peer</th>
+                              <th>chronic</th>
+						      <th>fatigue</th>
+						      <th>allergy</th>
+						      <th>wheezing</th>
+                              <th>alcohol</th>
+                              <th>coughing</th>
+                              <th>short breath</th>
+                              <th>swallow diff</th>
+                              <th>#</th>
+						    </tr>
+						  </thead>
+						  <tbody>
+
+
+
+                            {% for patient in patients %}
+                            <tr>
+						      <th scope="row">{{ patient.patient.name }}</th>
+						      <td>{{ patient.age }}</td>
+						      <td>{{ patient.gender }}</td>
+						      <td>{{ patient.smoking }}</td>
+                              <td>{{ patient.yellow_fingers }}</td>
+                              <td>{{ patient.anxiety }}</td>
+                              <td>{{ patient.peer_pressure }}</td>
+                              <td>{{ patient.chronic_disease }}</td>
+						      <td>{{ patient.fatigue }}</td>
+						      <td>{{ patient.allergy }}</td>
+                              <td>{{ patient.wheezing }}</td>
+                              <td>{{ patient.alcohol }}</td>
+                              <td>{{ patient.coughing }}</td>
+                              <td>{{ patient.short_breath }}</td>
+                              <td>{{ patient.swallowing_difficulty }}</td>
+                              {% if patient.prediction %}
+
+                                  <td>{{ patient.prediction }} <a href="media/{{ patient.image }}"> || Image</a></td>
+                                {% else %}
+                                  <td>
+                                    <form method="post" enctype="multipart/form-data">
+                                      {% csrf_token %}
+                                      <input type="hidden" name="id" value="{{ patient.id }}">
+                                      <input type="file" name="image">
+                                      <input type="submit" value="Upload Image">
+                                    </form>
+                                  </td>
+                            {% endif %}
+                            </tr>
+                          {% endfor %}
+
+						  </tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+    </div>
+     </div>
+   </div>
+
+    <div class="footer py-4">
+      <div class="container-fluid text-center">
+        <p>
+          <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+          Copyright &copy;<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>document.write(new Date().getFullYear());</script>
+          <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+        </p>
+      </div>
+    </div>
+
+
+
+
+
+  </div>
+
+  <script src="{% static 'style_1/js/jquery-3.3.1.min.js' %}"></script>
+  <script src="{% static 'style_1/js/jquery-migrate-3.0.1.min.js' %}"></script>
+  <script src="{% static 'style_1/js/jquery-ui.js' %}"></script>
+  <script src="{% static 'style_1/js/popper.min.js' %}"></script>
+  <script src="{% static 'style_1/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'style_1/js/owl.carousel.min.js' %}"></script>
+  <script src="{% static 'style_1/js/jquery.stellar.min.js' %}"></script>
+  <script src="{% static 'style_1/js/jquery.countdown.min.js' %}"></script>
+  <script src="{% static 'style_1/js/jquery.magnific-popup.min.js' %}"></script>
+  <script src="{% static 'style_1/js/bootstrap-datepicker.min.js' %}"></script>
+  <script src="{% static 'style_1/js/swiper.min.js' %}"></script>
+  <script src="{% static 'style_1/js/aos.js' %}"></script>
+
+  <script src="{% static 'style_1/js/picturefill.min.js' %}"></script>
+  <script src="{% static 'style_1/js/lightgallery-all.min.js' %}"></script>
+  <script src="{% static 'style_1/js/jquery.mousewheel.min.js' %}"></script>
+
+  <script src="{% static 'style_1/js/main.js' %}"></script>
+
+  <script>
+    $(document).ready(function(){
+      $('#lightgallery').lightGallery();
+    });
+  </script>
+
+</body>
+</html>
